@@ -1,5 +1,7 @@
 # Simple PHP Address Book
 
+A simple address book, written in PHP without any framework.
+
 ## Requirements
 - php8
 - MySql
