@@ -17,32 +17,32 @@
   <form method="POST" action="/contacts/<?= $contact->id; ?>">
     <div class="section">
       <label for="id">Nachname:</label>
-      <input type="text" name="lastName" id="lastName" required value="<?= $contact->lastName; ?>">
+      <input type="text" name="lastName" id="lastName" required maxlength="20" value="<?= $contact->lastName; ?>">
     </div>
 
     <div class="section">
       <label for="id">Vorname:</label>
-      <input type="text" name="firstName" id="firstName" value="<?= $contact->firstName; ?>">
+      <input type="text" name="firstName" id="firstName" maxlength="20" value="<?= $contact->firstName; ?>">
     </div>
 
     <div class="section">
       <label for="id">Straße:</label>
-      <input type="text" name="street" id="street" value="<?= $contact->street; ?>">
+      <input type="text" name="street" id="street" maxlength="30" value="<?= $contact->street; ?>">
     </div>
 
     <div class="section">
       <label for="id">PLZ:</label>
-      <input type="text" name="zip" id="zip" value="<?= $contact->zip; ?>">
+      <input type="text" name="zip" id="zip" maxlength="10" value="<?= $contact->zip; ?>">
     </div>
 
     <div class="section">
       <label for="id">Stadt:</label>
-      <input type="text" name="city" id="city" value="<?= $contact->city; ?>">
+      <input type="text" name="city" id="city" maxlength="30" value="<?= $contact->city; ?>">
     </div>
 
     <div class="section">
       <label for="id">Telefon:</label>
-      <input type="text" name="phoneNumber" id="phoneNumber" value="<?= $contact->phoneNumber; ?>">
+      <input type="text" name="phoneNumber" id="phoneNumber" maxlength="30" value="<?= $contact->phoneNumber; ?>">
     </div>
 
     <div class="section">
