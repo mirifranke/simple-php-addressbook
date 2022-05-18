@@ -33,12 +33,12 @@ class ContactController
     public function create()
     {
         $contact = new Contact(
-            lastName: $_REQUEST['lastName'],
-            firstName: $_REQUEST['firstName'],
-            street: $_REQUEST['street'],
-            zip: $_REQUEST['zip'],
-            city: $_REQUEST['city'],
-            phoneNumber: $_REQUEST['phoneNumber'],
+            lastName: self::getRequestData('lastName'),
+            firstName: self::getRequestData('firstName'),
+            street: self::getRequestData('street'),
+            zip: self::getRequestData('zip'),
+            city: self::getRequestData('city'),
+            phoneNumber: self::getRequestData('phoneNumber'),
         );
         DatabaseActions::createContact($contact);
 
@@ -48,12 +48,12 @@ class ContactController
     public function update($id)
     {
         $contact = DatabaseActions::getContact($id);
-        $contact->lastName = $_REQUEST['lastName'];
-        $contact->firstName = $_REQUEST['firstName'];
-        $contact->street = $_REQUEST['street'];
-        $contact->zip = $_REQUEST['zip'];
-        $contact->city = $_REQUEST['city'];
-        $contact->phoneNumber = $_REQUEST['phoneNumber'];
+        $contact->lastName = self::getRequestData('lastName');
+        $contact->firstName = self::getRequestData('firstName');
+        $contact->street = self::getRequestData('street');
+        $contact->zip = self::getRequestData('zip');
+        $contact->city = self::getRequestData('city');
+        $contact->phoneNumber = self::getRequestData('phoneNumber');
         DatabaseActions::updateContact($contact);
 
         header("Location: /");
@@ -64,5 +64,10 @@ class ContactController
         DatabaseActions::deleteContact($id);
 
         header("Location: /");
+    }
+
+    public static function getRequestData(string $field)
+    {
+        return htmlspecialchars($_REQUEST[$field]);
     }
 }
